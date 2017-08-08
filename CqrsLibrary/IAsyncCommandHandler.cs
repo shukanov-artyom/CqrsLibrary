@@ -3,7 +3,11 @@ using System.Threading.Tasks;
 
 namespace CqrsLibrary
 {
-    public interface IAsyncCommandHandler<TCommand>
+    /// <summary>
+    /// Asynchronous command handler interface.
+    /// </summary>
+    /// <typeparam name="TCommand"></typeparam>
+    public interface IAsyncCommandHandler<in TCommand>
         where TCommand : ICommand
     {
         Task<ICommandResult> ExecuteAsync(TCommand command);
